@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:custom_dialog/src/dialog_logo.dart';
+import 'package:custom_dialog/src/custom_dialog/dialog_logo.dart';
 import 'package:custom_dialog/src/utils/app_constant.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

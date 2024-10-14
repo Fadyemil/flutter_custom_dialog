@@ -1,4 +1,4 @@
-import 'package:custom_dialog/src/dialog_box.dart';
+import 'package:custom_dialog/src/custom_dialog/dialog_box.dart';
 import 'package:custom_dialog/src/models/selection_dialog_option.dart';
 import 'package:custom_dialog/src/utils/app_constant.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +32,9 @@ class CustomSelectionDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
+            Text(title,
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
             const SizedBox(height: 5),
             const Divider(),
             _buildOptions(context),
@@ -58,7 +60,8 @@ class CustomSelectionDialog extends StatelessWidget {
       itemBuilder: (_, index) {
         var option = options[index];
         return ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: AppConstant.dialogPadding / 2),
+          contentPadding: const EdgeInsets.symmetric(
+              horizontal: AppConstant.dialogPadding / 2),
           leading: option.icon != null ? Icon(option.icon) : null,
           title: Text(option.text, style: const TextStyle(fontSize: 15)),
           onTap: () {
@@ -68,7 +71,8 @@ class CustomSelectionDialog extends StatelessWidget {
         );
       },
       separatorBuilder: (_, __) => const Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppConstant.dialogPadding / 2),
+        padding:
+            EdgeInsets.symmetric(horizontal: AppConstant.dialogPadding / 2),
         child: Divider(height: 0),
       ),
       itemCount: options.length,

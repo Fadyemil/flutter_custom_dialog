@@ -1,21 +1,22 @@
-import 'package:custom_dialog/src/dialog_box.dart';
+import 'package:custom_dialog/src/custom_dialog/dialog_box.dart';
 import 'package:custom_dialog/src/utils/app_constant.dart';
 import 'package:flutter/material.dart';
 
-class CustomConfirmDialog extends StatelessWidget {
-  const CustomConfirmDialog({
+class CustomInputDialog extends StatelessWidget {
+  const CustomInputDialog({
     super.key,
     required this.title,
-    required this.message,
-    this.onYes,
-    this.onNo,
+    required this.inputItems,
+    required this.onSubmit,
+    this.submitText = 'Submit',
+    this.minWidth = 400,
     this.assetLogo,
   });
-
   final String title;
-  final String message;
-  final Function()? onNo;
-  final Function()? onYes;
+  final List<Widget> inputItems;
+  final Function() onSubmit;
+  final double minWidth;
+  final String submitText;
   final String? assetLogo;
 
   @override
@@ -27,19 +28,20 @@ class CustomConfirmDialog extends StatelessWidget {
       elevation: 0,
       backgroundColor: Colors.transparent,
       child: DialogBox(
+        minWidth: minWidth,
         assetLogo: assetLogo,
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
+          children: [
             Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
             const SizedBox(height: 15),
-            Text(
-              message,
-              style: const TextStyle(fontSize: 15),
-              textAlign: TextAlign.center,
+            SingleChildScrollView(
+              child: Column(
+                children: inputItems,
+              ),
             ),
             const SizedBox(height: 15),
-            _buildActionButtons(context),
+            _buildActionButtons(context)
           ],
         ),
       ),
@@ -53,17 +55,16 @@ class CustomConfirmDialog extends StatelessWidget {
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
-            onNo?.call();
           },
-          child: Text('No', style: TextStyle(fontSize: 16, color: Colors.grey.shade600)),
+          child: Text('Cancel', style: TextStyle(fontSize: 16, color: Colors.grey.shade600)),
         ),
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
-            onYes?.call();
+            onSubmit.call();
           },
-          child: const Text('Yes', style: TextStyle(fontSize: 16)),
-        )
+          child: Text(submitText, style: const TextStyle(fontSize: 16)),
+        ),
       ],
     );
   }

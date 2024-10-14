@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:custom_dialog/custom_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -87,6 +89,9 @@ class MyHomePage extends StatelessWidget {
                   onYes: () {
                     // proceed with the action
                   },
+                  onNo: () {
+                    // proceed with the action
+                  },
                 );
               },
               child: const Text("Show confirm dialog"),
@@ -102,6 +107,9 @@ class MyHomePage extends StatelessWidget {
                   onYes: () {
                     // proceed with the action
                   },
+                  onNo: () {
+                    // proceed with the action
+                  },
                 );
               },
               child: const Text("Show confirm dialog with logo"),
@@ -112,12 +120,19 @@ class MyHomePage extends StatelessWidget {
                 CustomDialog.showSelectionDialog(
                   context,
                   options: [
-                    SelectionDialogOption(key: 'phone', icon: Icons.phone_outlined, text: 'Phone'),
-                    SelectionDialogOption(key: 'email', icon: Icons.email_outlined, text: 'Email'),
-                    SelectionDialogOption(key: 'sms', icon: Icons.sms_outlined, text: 'SMS'),
+                    SelectionDialogOption(
+                        key: 'phone',
+                        icon: Icons.phone_outlined,
+                        text: 'Phone'),
+                    SelectionDialogOption(
+                        key: 'email',
+                        icon: Icons.email_outlined,
+                        text: 'Email'),
+                    SelectionDialogOption(
+                        key: 'sms', icon: Icons.sms_outlined, text: 'SMS'),
                   ],
                   onSelected: (selected) {
-                    // proceed with the selected option
+                    log('*************${selected}***************');
                   },
                 );
               },
@@ -129,13 +144,20 @@ class MyHomePage extends StatelessWidget {
                 CustomDialog.showSelectionDialog(
                   context,
                   options: [
-                    SelectionDialogOption(key: 'phone', icon: Icons.phone_outlined, text: 'Phone'),
-                    SelectionDialogOption(key: 'email', icon: Icons.email_outlined, text: 'Email'),
-                    SelectionDialogOption(key: 'sms', icon: Icons.sms_outlined, text: 'SMS'),
+                    SelectionDialogOption(
+                        key: 'phone',
+                        icon: Icons.phone_outlined,
+                        text: 'Phone'),
+                    SelectionDialogOption(
+                        key: 'email',
+                        icon: Icons.email_outlined,
+                        text: 'Email'),
+                    SelectionDialogOption(
+                        key: 'sms', icon: Icons.sms_outlined, text: 'SMS'),
                   ],
                   assetDialogLogo: 'assets/logo.gif',
                   onSelected: (selected) {
-                    // proceed with the selected option
+                    log('*************${selected}***************'); // proceed with the selected option
                   },
                 );
               },

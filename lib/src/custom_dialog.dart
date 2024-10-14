@@ -1,7 +1,7 @@
-import 'package:custom_dialog/src/custom_confirm_dialog.dart';
-import 'package:custom_dialog/src/custom_input_dialog.dart';
-import 'package:custom_dialog/src/custom_message_dialog.dart';
-import 'package:custom_dialog/src/custom_selection_dailog.dart';
+import 'package:custom_dialog/src/custom_dialog/custom_confirm_dialog.dart';
+import 'package:custom_dialog/src/custom_dialog/custom_input_dialog.dart';
+import 'package:custom_dialog/src/custom_dialog/custom_message_dialog.dart';
+import 'package:custom_dialog/src/custom_dialog/custom_selection_dailog.dart';
 import 'package:custom_dialog/src/models/selection_dialog_option.dart';
 import 'package:custom_dialog/src/utils/message_dialog_type.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class CustomDialog {
     String title = 'Confirmation',
     required String message,
     required Function() onYes,
-    Function()? onNo,
+    required Function() onNo,
     String? assetDialogLogo,
     barrierDismissible = true,
   }) async {

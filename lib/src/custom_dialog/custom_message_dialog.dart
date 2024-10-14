@@ -1,4 +1,4 @@
-import 'package:custom_dialog/src/dialog_box.dart';
+import 'package:custom_dialog/src/custom_dialog/dialog_box.dart';
 import 'package:custom_dialog/src/utils/app_constant.dart';
 import 'package:custom_dialog/src/utils/message_dialog_type.dart';
 import 'package:flutter/material.dart';
